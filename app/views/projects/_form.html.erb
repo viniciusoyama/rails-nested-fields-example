@@ -16,6 +16,24 @@
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <%= form.fields_for(:sprints) do |sprint_form| %>
+  <div class="my-5 bg-gray-100 rounded-sm p-4 flex flex-col">
+    <div class="flex gap-2 items-center">
+      <%= sprint_form.label :name, "Sprint Name" %>
+      <%= sprint_form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+
+      <% if sprint_form.object.persisted? %>
+        <label class="flex gap-2 text-sm text-red-500">
+          <%= sprint_form.check_box :_destroy %>
+          <span>remove</span>
+        </label>
+      <% end %>
+
+    </div>
+  </div>
+   
+  <% end %>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
