@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply cursor-pointer transition-colors inline-flex font-normal items-center justify-center rounded-md py-2 px-6 text-center text-sm;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:bg-primary-600 active:bg-primary-600;
+  }
+
+  .btn-primary-outline {
+    @apply btn-primary bg-white border border-primary-500 text-primary-500;
+  }
+
+  .btn-neutral.btn-xl,
+  .btn-primary.btn-xl,
+  .btn-secondary.btn-xl,
+  .btn-tertiary.btn-xl,
+  .btn-danger.btn-xl,
+  .btn-cancel.btn-xl {
+    @apply py-4;
+  }
+
+}
