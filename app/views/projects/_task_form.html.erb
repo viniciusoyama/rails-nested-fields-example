@@ -1,0 +1,10 @@
+<div class="border-l-4 border-emerald-400 pl-4 flex gap-4 items-center">
+  <%= task_form.text_field :description, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+
+  <% if task_form.object.persisted? %>
+    <label class="flex gap-2 text-sm text-red-500">
+      <%= task_form.check_box :_destroy %>
+      <span>remove</span>
+    </label>
+  <% end %>
+</div>

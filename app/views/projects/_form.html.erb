@@ -26,8 +26,9 @@
         <%= render partial: 'sprint_form', locals: { sprint_form: } %>
       <% end %>
     </template>
-    <span class="btn-primary btn-sm" data-action="click->nested-form#addItem">Add sprint</span>
-    
+    <div class="text-right">
+      <span class="btn-primary cursor-pointer btn-sm" data-action="click->nested-form#addItem">Add sprint</span>
+    </div>
     <div data-nested-form-target="itemsList">
       <%= form.fields_for(:sprints) do |sprint_form| %>
         <%= render partial: 'sprint_form', locals: { sprint_form: } %>

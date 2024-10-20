@@ -9,7 +9,7 @@ export default class extends Controller {
   addItem(e) {
     e.preventDefault(); e.stopPropagation();
 
-    this.itemsListTarget.innerHTML += this.generateFormHTML()
+    this.itemsListTarget.insertAdjacentHTML('afterbegin', this.generateFormHTML())
   }
 
   generateFormHTML() {

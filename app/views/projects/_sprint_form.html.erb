@@ -1,4 +1,4 @@
-<div class="my-5 bg-gray-100 rounded-sm p-4 flex flex-col">
+<div class="my-5 bg-slate-100 rounded-md p-4 flex flex-col">
   <div class="flex gap-2 items-center">
     <%= sprint_form.label :name, "Sprint Name" %>
     <%= sprint_form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
@@ -9,6 +9,25 @@
         <span>remove</span>
       </label>
     <% end %>
+  </div>
+  
 
+  <div class="my-4 border-top border-gray-400 flex flex-col" 
+     data-controller='nested-form'
+     data-nested-form-pattern-to-replace-with-index-value="TASK_INDEX"
+  >
+    <template data-nested-form-target="formTemplate">
+      <%= sprint_form.fields_for(:tasks, Task.new, child_index: "TASK_INDEX") do |task_form| %>
+        <%= render partial: 'task_form', locals: { task_form: } %>
+      <% end %>
+    </template>
+    <div class="text-right mb-2 mt-4">
+      <span class="btn-tertiary cursor-pointer color-sky-500 btn-sm" data-action="click->nested-form#addItem">+ Add task</span>
+    </div>
+    <div data-nested-form-target="itemsList" class="flex flex-col gap-4">
+      <%= sprint_form.fields_for(:tasks) do |task_form| %>
+        <%= render partial: 'task_form', locals: { task_form: } %>
+      <% end %>
+    </div>
   </div>
 </div>
