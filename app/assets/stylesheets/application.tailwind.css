@@ -24,4 +24,20 @@
     @apply py-4;
   }
 
+
+  .input-primary {
+    @apply w-full rounded-lg border border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary-500;
+  }
+  
+  .input-secondary {
+    @apply w-full rounded-lg border border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-secondary-500;
+  }
+  
+  .input-sm {
+    @apply py-1;
+  }
+
+  .label-primary {
+    @apply block text-sm;
+  }
 }

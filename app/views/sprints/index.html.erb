@@ -1,0 +1,21 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <% content_for :title, "Sprints" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Sprints</h1>
+    <%= link_to "New sprint", new_sprint_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="sprints" class="min-w-full">
+    <% @sprints.each do |sprint| %>
+      <%= render sprint %>
+      <p>
+        <%= link_to "Show this sprint", sprint, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </p>
+    <% end %>
+  </div>
+</div>

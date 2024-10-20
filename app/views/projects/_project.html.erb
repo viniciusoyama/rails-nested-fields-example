@@ -1,0 +1,8 @@
+<div id="<%= dom_id project %>" class="rounded-md bg-gray-100 mb-8 p-4">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= project.name %>
+  </p>
+  <%= link_to "Edit this project", edit_project_path(project), class: "mt-2 ml-2 rounded-lg py-3 px-5 text-blue-400 inline-block font-medium" %>
+  <%= link_to "Show this project", project, class: "mt-2 ml-2 rounded-lg py-3 px-5 text-indigo-400 inline-block font-medium" %>
+</div>
