@@ -1,4 +1,4 @@
-<%= form_with(model: project, class: "contents") do |form| %>
+<%= form_with(model: project, class: "contents" ) do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -16,23 +16,24 @@
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <%= form.fields_for(:sprints) do |sprint_form| %>
-  <div class="my-5 bg-gray-100 rounded-sm p-4 flex flex-col">
-    <div class="flex gap-2 items-center">
-      <%= sprint_form.label :name, "Sprint Name" %>
-      <%= sprint_form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="my-4 flex flex-col" 
+     data-controller='nested-form'
+     data-nested-form-pattern-to-replace-with-index-value="SPRINT_INDEX"
+  >
 
-      <% if sprint_form.object.persisted? %>
-        <label class="flex gap-2 text-sm text-red-500">
-          <%= sprint_form.check_box :_destroy %>
-          <span>remove</span>
-        </label>
+    <template data-nested-form-target="formTemplate">
+      <%= form.fields_for(:sprints, Sprint.new, child_index: "SPRINT_INDEX") do |sprint_form| %>
+        <%= render partial: 'sprint_form', locals: { sprint_form: } %>
       <% end %>
-
+    </template>
+    <span class="btn-primary btn-sm" data-action="click->nested-form#addItem">Add sprint</span>
+    
+    <div data-nested-form-target="itemsList">
+      <%= form.fields_for(:sprints) do |sprint_form| %>
+        <%= render partial: 'sprint_form', locals: { sprint_form: } %>
+      <% end %>
     </div>
   </div>
-   
-  <% end %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
