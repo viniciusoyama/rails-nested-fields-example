@@ -2,8 +2,8 @@
 
 Example project for << ARTICLE >>
 
-- Video tutorial: LINK
-- Blog post: LINK
+- Video tutorial: https://youtu.be/_UzbEPyAmCI
+- Blog post: https://vinioyama.com/blog/rails-nested-attributes-creating-multi-nested-models-at-once-using-one-form/
 
 # How to Run?
 
