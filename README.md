@@ -1,6 +1,6 @@
 # README
 
-Example project for << ARTICLE >>
+Example project for "Ruby on Rails Nested Attributes: Forms with Multiple Nested Models – Explanation and Practice with StimulusJS"
 
 - Video tutorial: https://youtu.be/_UzbEPyAmCI
 - Blog post: https://vinioyama.com/blog/rails-nested-attributes-creating-multi-nested-models-at-once-using-one-form/
